@@ -7,6 +7,8 @@
 #      user-authorization-uri: http://localhost:20000/oauth/authorize
 #    resource:
 #      token-info-uri: http://localhost:20000/oauth/check_token
+#    sso:
+#      login-path:
 
 server:
   port: 20001
