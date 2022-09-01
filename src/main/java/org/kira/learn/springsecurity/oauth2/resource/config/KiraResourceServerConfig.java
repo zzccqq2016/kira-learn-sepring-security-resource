@@ -29,8 +29,8 @@ public class KiraResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources
-                .tokenServices(tokenServices());
+//        resources
+//                .tokenServices(tokenServices());
     }
 
     @Override
@@ -43,41 +43,41 @@ public class KiraResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.csrf().disable();
     }
 
-    /**
-     * @Description OAuth2 token持久化接口，jwt不会做持久化处理
-     * @Date 2019/7/15 18:12
-     * @Version 1.0
-     */
-    @Bean
-    public TokenStore jwtTokenStore() {
-        return new JwtTokenStore(accessTokenConverter());
-    }
-
-    /**
-     * @Description 令牌服务
-     * @Date 2019/7/15 18:07
-     * @Version 1.0
-     */
-    @Bean
-    public DefaultTokenServices tokenServices() {
-        DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
-        defaultTokenServices.setTokenStore(jwtTokenStore());
-        return defaultTokenServices;
-    }
-
-    /**
-     * @Description 自定义token令牌增强器
-     * @Date 2019/7/11 16:22
-     * @Version 1.0
-     */
-    @Bean
-    public JwtAccessTokenConverter accessTokenConverter() {
-        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        KeyPair keyPair = new KeyStoreKeyFactory(
-                new ClassPathResource("kira-jwt.jks"), "Zhangxu00!".toCharArray()).getKeyPair("kira");
-        converter.setKeyPair(keyPair);
-        return converter;
-    }
+//    /**
+//     * @Description OAuth2 token持久化接口，jwt不会做持久化处理
+//     * @Date 2019/7/15 18:12
+//     * @Version 1.0
+//     */
+//    @Bean
+//    public TokenStore jwtTokenStore() {
+//        return new JwtTokenStore(accessTokenConverter());
+//    }
+//
+//    /**
+//     * @Description 令牌服务
+//     * @Date 2019/7/15 18:07
+//     * @Version 1.0
+//     */
+//    @Bean
+//    public DefaultTokenServices tokenServices() {
+//        DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
+//        defaultTokenServices.setTokenStore(jwtTokenStore());
+//        return defaultTokenServices;
+//    }
+//
+//    /**
+//     * @Description 自定义token令牌增强器
+//     * @Date 2019/7/11 16:22
+//     * @Version 1.0
+//     */
+//    @Bean
+//    public JwtAccessTokenConverter accessTokenConverter() {
+//        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+//        KeyPair keyPair = new KeyStoreKeyFactory(
+//                new ClassPathResource("kira-jwt.jks"), "Zhangxu00!".toCharArray()).getKeyPair("kira");
+//        converter.setKeyPair(keyPair);
+//        return converter;
+//    }
 
 
     public KiraResourceServerConfig() {
