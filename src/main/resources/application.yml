@@ -1,12 +1,8 @@
-security:
-  oauth2:
-    client:
-      client-id: client
-      client-secret: secret
-      access-token-uri: http://localhost:20000/oauth/token
-      user-authorization-uri: http://localhost:20000/oauth/authorize
-    resource:
-      token-info-uri: http://localhost:20000/oauth/check_token
-
 server:
   port: 20001
+spring:
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          public-key-location: classpath:publickKey.txt
