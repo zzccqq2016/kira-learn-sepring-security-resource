@@ -12,3 +12,7 @@
 
 server:
   port: 20001
+  servlet:
+    session:
+      cookie:
+        name: oauth-client
